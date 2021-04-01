@@ -3,7 +3,7 @@
 ##### Calcan Elena-Claudia 
 ##### 321CA
 
-Programul reprezinta fluxul clientilor pe la casele un supermarket.
+Programul reprezinta fluxul clientilor pe la casele unui supermarket.
 
 #### 1. queue
 ----------------------------------------------------------
@@ -32,3 +32,27 @@ Programul reprezinta fluxul clientilor pe la casele un supermarket.
     - is-closed -> starea unei case, inchisa sau deschisa
    - simularea este data de functia serve care primeste o lista de cereri, requests, ce sunt aplicate
    pe rand caselor
+   - exista 2 tipuri de case:
+      1. prioritare (fast)
+      2. normale (slow)
+     
+   - se efectueaza 5 tipuri de cereri:
+      1.  ADD (client n-items)
+          - adauga clientul la coada unei case
+          - in functie de numarul de items acesta se poate aseza la o casa prioritara sau normala
+          - clientul este asezat la casa cu tt-ul minim din lista de case si care este deschisa
+     
+     2.   DELAY (index minutes)
+          - este crescut tt-ul si et-ul casei cu indexul dat cu un numar de minute dat
+          - in cele doua liste se cauta casa cu indexul corespunzator si ii se aplica cererea 
+     
+     3.   CLOSE (index)
+          - starea casei cu indezul dat este setata ca fiind inchisa
+          - in cele doua liste se cauta casa cu indexul corespunzator si ii se aplica cererea
+     
+     4.   PASSED-TIME (minutes)
+          - se scad tt-ul si et-ul tuturor caselor 
+          - in functie de timpul trecut clientii se scot de la case si se salveaza intr-o lista
+      
+     5.   ENSURE (average)
+          - se adauga case normale pana cand tt-ul mediu a tuturor caselor deschise este mai mic sau egal decat average  
